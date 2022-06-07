@@ -30,3 +30,29 @@ export const generateRowsData = (ticketsData, headersData, pricingData) => {
     return rowData;
   });
 };
+
+export const formatRowsWithPositiveIntegers = (tableRows) => {
+  return tableRows.map((rowData) => {
+    let sanitisedRow = {};
+
+    for (let property in rowData) {
+      if (rowData[property] > 0) {
+        sanitisedRow = {
+          ...sanitisedRow,
+          ticket_id: rowData.ticket_id,
+          [property]: rowData[property],
+        };
+      }
+    }
+
+    return sanitisedRow;
+  });
+};
+
+export const removeEmptyObjects = (array) =>
+  array.filter((obj) => JSON.stringify(obj) !== "{}");
+
+export const saveData = (data) => {
+  console.info("Saved data: ", data);
+  alert("Data saved, please view console.");
+};

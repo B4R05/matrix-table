@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react'
+import React, { useCallback } from "react";
 
-import styles from './InputInteger.module.css'
+import styles from "./InputInteger.module.css";
 
 /**
  * Controlled input field with a mask that only accepts integers as input.
@@ -21,34 +21,37 @@ const InputInteger = ({
   placeholder = 0,
   change,
   min = null,
-  max = null
+  max = null,
 }) => {
-  const handleChange = useCallback((event) => {
-    const changeValue = event.target.value
+  const handleChange = useCallback(
+    (event) => {
+      const changeValue = event.target.value;
 
-    if (changeValue === '') {
-      change(field, 0)
-    } else {
-      let value = Number(event.target.value.replace(/[^0-9]/g, ''))
+      if (changeValue === "") {
+        change(field, 0);
+      } else {
+        let value = Number(event.target.value.replace(/[^0-9]/g, ""));
 
-      if (min && value < min) value = Number(min)
+        if (min && value < min) value = Number(min);
 
-      if (max && value > max) value = Number(max)
+        if (max && value > max) value = Number(max);
 
-      change(field, value)
-    }
-  }, [change, field, max, min])
+        change(field, value);
+      }
+    },
+    [change, field, max, min]
+  );
 
   return (
     <input
       className={styles.input}
       id={field}
-      type={'text'}
+      type={"text"}
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
     />
-  )
-}
+  );
+};
 
-export default InputInteger
+export default InputInteger;

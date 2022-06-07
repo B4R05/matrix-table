@@ -10,7 +10,13 @@ import useData from "./hooks/useData";
 import useMarkets from "./hooks/useMarkets";
 import useTickets from "./hooks/useTickets";
 
-import { generateHeaders, generateRowsData } from "./utils";
+import {
+  formatRowsWithPositiveIntegers,
+  generateHeaders,
+  generateRowsData,
+  removeEmptyObjects,
+  saveData,
+} from "./utils";
 
 const App = () => {
   const { data: ticketsData } = useTickets();
@@ -31,11 +37,27 @@ const App = () => {
     setTableRows(formattedRowsData);
   }, [pricingData, ticketsData, marketsData]);
 
+  const handleSave = () => {
+    const formattedRows = formatRowsWithPositiveIntegers(tableRows);
+    const filteredRows = removeEmptyObjects(formattedRows);
+    saveData(filteredRows);
+  };
+
   return (
     <View>
       <Heading level={1} title={"Pricing Matrix"} />
-      <Table columns={tableHeaders} data={tableRows} />{" "}
-      <ActionCTA change={() => alert("saved")}>Click me</ActionCTA>
+      {tableHeaders.length && tableRows.length ? (
+        <>
+          <Table
+            columns={tableHeaders}
+            data={tableRows}
+            updateRows={(updatedRows) => setTableRows(updatedRows)}
+          />{" "}
+          <ActionCTA change={handleSave}>Log Data To Console</ActionCTA>
+        </>
+      ) : (
+        <div>Loading....</div>
+      )}
     </View>
   );
 };
