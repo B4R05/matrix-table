@@ -1,0 +1,20 @@
+.button {
+  color: RGB(var(--theme_text_light));
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 1;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  outline: 0;
+  border-width: 0;
+  border-radius: 0.25rem;
+  background-color: RGB(var(--theme_action));
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

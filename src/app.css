@@ -1,0 +1,25 @@
+:root {
+  --theme_text: 60, 60, 60;
+  --theme_text_light: 255, 255, 255;
+  --theme_text_placeholder: 200, 200, 200;
+  --theme_background_mid: 200, 200, 200;
+  --theme_action: 61, 191, 163;
+  --theme_border: 120, 120, 120;
+  --theme_border_thick: 20, 20, 20;
+}
+
+html {
+  position: relative;
+  font-size: 16px;
+}
+
+html * {
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,28 @@
+.layout {
+  table-layout: auto;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0;
+}
+
+.layout th {
+  font-weight: normal;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.layout th, td {
+  font-weight: normal;
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+  min-width: 2.5rem;
+}
+
+.layout thead tr {
+  background: RGB(var(--theme_background_mid));
+  border-bottom: 1px solid RGB(var(--theme_border_thick));
+}
+
+.layout tbody tr {
+  border-bottom: 1px solid RGB(var(--theme_border));
+}

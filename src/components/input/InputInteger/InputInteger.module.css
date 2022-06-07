@@ -1,0 +1,41 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.input {
+  color: RGB(var(--theme_text));
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-self: stretch;
+  margin: 0;
+  padding: 0.25rem;
+  width: 100%;
+  background: transparent;
+  border: 1px solid RGB(var(--theme_border));
+  border-radius: 0.25rem;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  outline: none;
+}
+
+.input::-webkit-input-placeholder {
+  color: RGB(var(--theme_text_placeholder));
+}
+
+.input:-moz-placeholder {
+  color: RGB(var(--theme_text_placeholder));
+}
+
+.input::-moz-placeholder {
+  opacity: 1;
+  color: RGB(var(--theme_text_placeholder));
+}
+
+.input:-ms-input-placeholder {
+  color: RGB(var(--theme_text_placeholder));
+}
